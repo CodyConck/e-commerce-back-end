@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
       { model: Product }
     ]
   })
-  .then(dbTag => res.json(dbTag))
-  .catch(err => res.status(400).json(err))
+    .then(dbTag => res.json(dbTag))
+    .catch(err => res.status(400).json(err))
 });
 
 router.get('/:id', (req, res) => {
@@ -20,20 +20,20 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Product data
   Tag.findOne({
     where: {
-      id: req.body.id
+      id: req.params.id
     },
     include: [
       { model: Product }
     ]
   })
-  .then(dbTag => {
-    if(!dbTag) {
-      res.status(400).json({ message: 'This tage was not found!' })
-      return;
-    }
-    res.json(dbTag)
-  })
-  .catch(err => res.status(500).json(err))
+    .then(dbTag => {
+      if (!dbTag) {
+        res.status(400).json({ message: 'This tage was not found!' })
+        return;
+      }
+      res.json(dbTag)
+    })
+    .catch(err => res.status(500).json(err))
 });
 
 router.post('/', (req, res) => {
@@ -41,25 +41,27 @@ router.post('/', (req, res) => {
   Tag.create({
     tag_name: req.body.tag_name
   })
-  .then(dbTag => res.json(dbTag))
-  .catch(err => res.status(400).json(err))
+    .then(dbTag => res.json(dbTag))
+    .catch(err => res.status(400).json(err))
 });
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update({
+  Tag.update(req.body, {
     where: {
       id: req.params.id
     }
   })
-  .then(dbTag => {
-    if(!dbTag) {
-      res.status(400).json({ message: 'This tage was not found!' })
-      return;
-    }
-    res.json(dbTag)
-    .catch(err => res.status(400).json(err))
-  })
+    .then(dbTag => {
+      if (!dbTag) {
+        res.status(400).json({ message: 'This tag was not found!' })
+        return;
+      }
+      res.json(dbTag)
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    })
 });
 
 router.delete('/:id', (req, res) => {
@@ -69,14 +71,15 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbTag => {
-    if(!dbTag) {
-      res.status(400).json({ message: 'This tage was not found!' })
-      return;
-    }
-    res.json(dbTag)
-    .catch(err => res.status(400).json(err))
-  })
+    .then(dbTag => {
+      if (!dbTag) {
+        res.status(400).json({ message: 'This tage was not found!' })
+      }
+      res.json(dbTag)
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    })
 });
 
 module.exports = router;
