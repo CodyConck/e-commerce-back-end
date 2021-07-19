@@ -8,6 +8,7 @@
   * [Installation](#installation)
   * [Usage](#usage)
   * [Demo](#demo)
+  * [Links](#links)
   * [Technologies](#technologies)
   * [License](#license)
   * [Questions](#questions)
@@ -22,8 +23,16 @@
 
   ## Demo
 
-  
-  ![NodeReadMeDemo]
+  See links below for demos
+
+  ## Links
+  * Initial set up demo: https://drive.google.com/file/d/1JEhPzypmmAWvEHqVloW-m2eyhvXDlOCk/view
+
+  * GET ALL routes demo: https://drive.google.com/file/d/1qlUkzN8jATly4RwuCqvWyRxKERpu82BJ/view
+
+  * GET ONE routes demo: https://drive.google.com/file/d/1RFEBwTnQwDjOhtXqC8uaAJW4WBqlUq30/view
+
+  * POST PUT DELETE routes demo: https://drive.google.com/file/d/11tlJefPjwAM11jmuagKPF1gUP45mmhjK/view
 
   ## Technologies:
   * Node.js
